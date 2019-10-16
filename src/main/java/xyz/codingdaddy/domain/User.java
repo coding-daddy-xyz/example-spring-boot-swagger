@@ -1,5 +1,8 @@
 package xyz.codingdaddy.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,14 +12,22 @@ import javax.persistence.Id;
  *
  * @author serhiy
  */
+
+@ApiModel(description = "An entity used to identify the application clients")
 @Entity(name="users")
 public class User {
+    @ApiModelProperty(notes = "Unique user identifier")
     @Id
     @GeneratedValue
     private Long id;
 
+    @ApiModelProperty(notes = "Username used for authentication")
     private String username;
+
+    @ApiModelProperty(notes = "Password used for authentication")
     private String password;
+
+    @ApiModelProperty(notes = "E-mail used for contacting the user")
     private String email;
 
     public Long getId() {
