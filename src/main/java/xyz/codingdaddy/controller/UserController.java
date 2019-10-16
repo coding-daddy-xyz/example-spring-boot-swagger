@@ -36,7 +36,7 @@ public class UserController {
      * @return successful response with user details
      */
     @ApiOperation(value = "Retrieves user details")
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<User> get(@ApiParam(value = "The 'id' of the registered user", required = true) @PathVariable("id") Long id) {
         return userRepository.findById(id)
                 .map(user -> ResponseEntity.ok().body(user))

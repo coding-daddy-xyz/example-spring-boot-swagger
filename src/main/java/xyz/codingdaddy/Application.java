@@ -1,9 +1,9 @@
 package xyz.codingdaddy;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import xyz.codingdaddy.repository.UserRepository;
+import org.springframework.context.annotation.Bean;
 
 /**
  * Swagger String Boot application example
@@ -13,10 +13,12 @@ import xyz.codingdaddy.repository.UserRepository;
 @SpringBootApplication
 public class Application {
 
-    @Autowired
-    private UserRepository userRepository;
-
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 }
